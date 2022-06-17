@@ -12,23 +12,20 @@ public class MensajesService {
         Mensajes registro = new Mensajes();
         registro.setMensaje(mensaje);
         registro.setAutor_mensaje(nombre);
-        try{
-            MensajesDAO.crearMensajeDB(registro);
-        }catch (Exception e){
-            System.out.println(e);
-        }
+
+        MensajesDAO.crearMensajeDB(registro);
     }
 
     public static void listarMensajes(){
-        try{
-            MensajesDAO.leerMensajesDB();
-        }catch (Exception e){
-            System.out.println("Error al leer mensajes: " + e);
-        }
+        MensajesDAO.leerMensajesDB();
     }
 
     public static void borrarMensaje(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Indica el id del mensaje a borrar");
+        int id_mensaje = sc.nextInt();
 
+        MensajesDAO.borrarMensajeDB(id_mensaje);
     }
 
     public static void editarMensaje(){
