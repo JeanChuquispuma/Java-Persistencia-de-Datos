@@ -12,12 +12,19 @@ public class MensajesService {
         Mensajes registro = new Mensajes();
         registro.setMensaje(mensaje);
         registro.setAutor_mensaje(nombre);
-
-        MensajesDAO.crearMensajeDB(registro);
+        try{
+            MensajesDAO.crearMensajeDB(registro);
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     public static void listarMensajes(){
-
+        try{
+            MensajesDAO.leerMensajesDB();
+        }catch (Exception e){
+            System.out.println("Error al leer mensajes: " + e);
+        }
     }
 
     public static void borrarMensaje(){
