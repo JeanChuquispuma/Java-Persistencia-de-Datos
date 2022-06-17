@@ -59,6 +59,7 @@ public class MensajesDAO {
                 }else{
                     System.out.println("No se ha encontrado el dato");
                 }
+                conectar.cerrarConexion();
             }catch (Exception e){
                 System.out.println(e);
                 System.out.println("No se pudo borrar el mensaje");
@@ -79,6 +80,7 @@ public class MensajesDAO {
                 ps.executeUpdate();
 
                 System.out.println("El mensaje se actualizó correctamente");
+                conectar.cerrarConexion();
             }catch (Exception e){
                 System.out.println(e);
                 System.out.println("no se pudo actualizar el mensaje");
